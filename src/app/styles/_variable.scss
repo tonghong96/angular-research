@@ -1,0 +1,18 @@
+// system color
+$blue:    #1551a0 !important;
+$blue-200: #5397ea !important;
+$blue-300: #5d658c !important;
+$blue-400: #737a99ff !important;
+$gray-100: #ebf1f9 !important;
+$black-200: #333333ff !important;
+$white: #ffffff !important;
+
+$colors: (
+  'blue': $blue,
+  'gray-100': $gray-100,
+  'blue-200': $blue-200,
+  'blue-300': $blue-300,
+  'black-200': $black-200,
+  'white': $white
+  // TODO: add system color into here
+) !default;

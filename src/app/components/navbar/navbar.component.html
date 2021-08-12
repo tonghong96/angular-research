@@ -1,0 +1,25 @@
+<nav class="navbar navbar-container">
+  <div class="logo" (click)="clickedLogo()">
+    <img src="./assets/images/logo_omron.svg" width="100" height="30" class="d-inline-block align-top" alt="" style="margin-left: -10px;">
+  </div>
+  <div class="d-flex justify-content-end">
+    <div class="mr-20 cursor-pointer" (click)="clickedReload()">
+      <img class="reload" src="./assets/images/icon_reload.svg" style="width: 30px;">
+    </div>
+    <div class="mr-20 cursor-pointer" (click)="clickedHelp()">
+      <img class="help" src="./assets/images/icon_help.svg">
+    </div>
+    <div ngbDropdown>
+      <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle #btnMenu>
+        <img src="./assets/images/icon_menu.svg" ngbDropdownToggle (click)="btnMenu.click()">
+      </button>
+      <div ngbDropdownMenu aria-labelledby="dropdownBasic1" style="right: 0; left: auto;">
+        <button ngbDropdownItem (click)="redirectChangePass()">Change password</button>
+        <button ngbDropdownItem>Log out</button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<app-app-version hidden></app-app-version>
+

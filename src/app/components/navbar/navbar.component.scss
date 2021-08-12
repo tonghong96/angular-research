@@ -1,0 +1,23 @@
+@import "src/styles";
+
+.navbar-container {
+  background-color: $blue;
+  height: 44px;
+  padding: 0 1rem;
+
+  .logo {
+    cursor: pointer;
+  }
+}
+
+.dropdown-toggle::after {
+  border-top: none;
+}
+
+.dropdown {
+  .btn {
+    padding: 0;
+    width: 30px;
+    border: none;
+  }
+}

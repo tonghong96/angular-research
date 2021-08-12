@@ -1,1 +1,39 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';
+
+/* Import style files */
+@import './app/styles/_spacing.scss';
+@import './app/styles/_variable.scss';
+@import './app/styles/_text.scss';
+@import './app/styles/_color.scss';
+
+
+html{
+  height: 100%;
+}
+
+body{
+  min-height: 100%;
+  font-size: 14px;
+  min-width: 980px;
+  overflow-x: auto;
+}
+
+p, button {
+  font-size: 14px;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.tooltip-inner {
+  max-width: 500px;
+  background-color: #000000d9;
+}
+
+.form-label {
+  font-weight: bold;
+}

@@ -1,0 +1,14 @@
+@import "variable";
+
+@mixin textColor() {
+  @each $colorName, $color in $colors {
+    .text-#{$colorName} {
+      color: #{$color} !important;
+    }
+    .b-#{$colorName} {
+      background: #{$color} !important;
+    }
+  }
+}
+
+@include textColor;

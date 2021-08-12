@@ -8,9 +8,9 @@ import { NgbActiveModal } from "@ng-bootstrap/ng-bootstrap";
 })
 export class GroupListModalComponent implements OnInit {
   @Input() groups: { group_id: number, name: string; }[] = [];
+  @Input() selectedGroup!: number;
   @Output() emittedGroup = new EventEmitter<number>();
 
-  public selectedGroup = 3;
   public groupList: { group_id: number, name: string; }[] = []
 
   constructor(public activeModal: NgbActiveModal){}

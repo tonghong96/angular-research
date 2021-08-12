@@ -18,7 +18,8 @@ export class PatientListHypertensionComponent implements OnInit {
 
   public activeColumns = ['patient_id'];
   public textSearch = '';
-  public selectedGroup = -1;
+  public selectedGroup = 3;
+  public selectedNameGroup = 'group 3';
   public tooltip4List = [
     {
       col_1: 'トイレを一人でする',
@@ -174,8 +175,11 @@ export class PatientListHypertensionComponent implements OnInit {
   clickGroupName(): void {
     const modalRef = this.modalService.open(GroupListModalComponent);
     modalRef.componentInstance.groupList = this.groupList
+    modalRef.componentInstance.selectedGroup = this.selectedGroup
     modalRef.componentInstance.emittedGroup.subscribe((result: number) => {
       this.selectedGroup = result;
+      const group = this.groupList.find(item => item.group_id === result);
+      this.selectedNameGroup = group ? group.name : ''
     });
   }
 
@@ -216,10 +220,8 @@ export class PatientListHypertensionComponent implements OnInit {
    */
   sortBy(event: any): void{
     this.activeColumns = [];
-    console.log('originalFields: ', this.originalFields)
     const headerId: string = event.target.attributes.id.value;
     this.activeColumns.push(headerId);
-    console.log('sorted headerId: ', headerId);
     if (!this.tableFields[headerId].isSort){
       this.tableFields = JSON.parse(JSON.stringify(this.originalFields));
       this.tableFields[headerId].isSort = true;
@@ -229,8 +231,6 @@ export class PatientListHypertensionComponent implements OnInit {
     } else if (this.tableFields[headerId].sortType === 'desc' || this.tableFields[headerId].sortType === ''){
       this.tableFields[headerId].sortType = 'asc';
     }
-
-    console.log('tableFields after: ', this.tableFields);
   }
 
   redirectPatientDetail(patientId: string): void{

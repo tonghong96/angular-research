@@ -1,0 +1,107 @@
+$spacer: 1;
+$max: null;
+$baseSize: 0 !default;
+
+$properties: (
+  m: 'margin',
+  p: 'padding',
+);
+
+$positions: (
+  t: 'top',
+  r: 'right',
+  b: 'bottom',
+  l: 'left',
+);
+
+$spacers: (
+  1: $spacer * 0.25,
+  2: $spacer * 0.5,
+  3: $spacer,
+  4: $spacer * 2,
+);
+
+@mixin spacing($spacer, $max) {
+  @each $prop, $textProp in $properties {
+    @while ($baseSize <= $max) {
+      .#{$prop}-#{$baseSize} {
+        #{$textProp}: #{$baseSize}px !important;
+      }
+      .#{$prop}x-#{$baseSize} {
+        #{$textProp}-right: #{$baseSize}px !important;
+        #{$textProp}-left: #{$baseSize}px !important;
+      }
+      .#{$prop}y-#{$baseSize} {
+        #{$textProp}-top: #{$baseSize}px !important;
+        #{$textProp}-bottom: #{$baseSize}px !important;
+      }
+      @each $pos, $textPos in $positions {
+        .#{$prop}#{$pos}-auto {
+          #{$textProp}-#{$textPos}: auto !important;
+        }
+        .#{$prop}#{$pos}-#{$baseSize} {
+          #{$textProp}-#{$textPos}: #{$baseSize}px !important;
+        }
+      }
+      $baseSize: $baseSize + $spacer;
+    }
+  }
+}
+
+@mixin spacingRem() {
+  @each $prop, $textProp in $properties {
+    @each $size, $length in $spacers {
+      .#{$prop}-#{$size} {
+        #{$textProp}: #{$length}rem !important;
+      }
+      .#{$prop}t-#{$size} {
+        #{$textProp}-top: #{$length}rem !important;
+      }
+      .#{$prop}r-#{$size} {
+        #{$textProp}-right: #{$length}rem !important;
+      }
+      .#{$prop}b-#{$size} {
+        #{$textProp}-bottom: #{$length}rem !important;
+      }
+      .#{$prop}l-#{$size} {
+        #{$textProp}-left: #{$length}rem !important;
+      }
+      #{$prop}x-#{$size} {
+        #{$textProp}-right: #{$length}rem !important;
+        #{$textProp}-left: #{$length}rem !important;
+      }
+      .#{$prop}y-#{$size} {
+        #{$textProp}-top: #{$length}rem !important;
+        #{$textProp}-bottom: #{$length}rem !important;
+      }
+    }
+  }
+}
+
+.mt-100 {
+  margin-top: 100px !important;
+}
+
+.px-5 {
+  padding-left: 1.5rem !important;
+  padding-right: 1.5rem !important;
+}
+
+.m-auto {
+  margin: auto;
+}
+
+.mb-60 {
+  margin-bottom: 60px !important;
+}
+
+.mx-auto {
+  margin: 0 auto;
+}
+
+.my-auto {
+  margin: auto 0;
+}
+
+@include spacing(5, 100);
+@include spacingRem;

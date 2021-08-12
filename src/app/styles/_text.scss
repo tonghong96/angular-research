@@ -1,0 +1,60 @@
+@import 'variable';
+
+.text-normal {
+  font-size: 16px;
+}
+
+.text-small {
+  font-size: 12px !important;
+}
+
+.text-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.text-medium {
+  font-size: 18px !important;
+}
+
+.text-large {
+  font-size: 20px !important;
+}
+
+.text-big {
+  font-size: 24px !important;
+}
+
+.text-center {
+  text-align: center !important;
+}
+
+.text-right {
+  text-align: right !important;
+}
+
+.text-left {
+  text-align: left !important;
+}
+
+.text-pre-wrap {
+  white-space: pre-wrap;
+}
+
+.text-no-wrap {
+  white-space: nowrap;
+}
+
+.text-uppercase {
+  text-transform: uppercase;
+}
+
+.break-all {
+  word-break: break-all; /* Chrome, Safari */
+  word-wrap: break-word; /* IE11, Firefox */
+}
+
+.text-pre {
+  white-space: pre;
+}

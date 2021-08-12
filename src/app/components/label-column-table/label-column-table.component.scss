@@ -1,0 +1,33 @@
+@import "src/styles";
+
+.sort-by{
+  cursor: pointer;
+
+  span{
+    font-family: 'SegoeUI-SemiBold', sans-serif;
+  }
+}
+
+.sort-by:hover, .active{
+  span{
+    color: $blue-200;
+  }
+
+  svg{
+    path{
+      stroke: $blue-200;
+    }
+  }
+}
+
+.icon-sort{
+  width: 12px;
+  height: 12px;
+  margin-bottom: 4px;
+  transform: rotate(180deg);
+  cursor: pointer;
+}
+
+.sort-by.disabled{
+  pointer-events: none;
+}
