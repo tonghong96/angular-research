@@ -1,0 +1,32 @@
+@import "src/styles";
+
+.group-list-container {
+  .group-list-content {
+    margin: 20px auto;
+    width: 75%;
+    max-height: 200px;
+    overflow-y: auto;
+    cursor: pointer;
+    .group-item {
+      padding: 15px 10px;
+      border-top: 1px solid #80808030;
+      .group-name {
+        word-break: break-all;
+      }
+    }
+    .active {
+      background-color: $gray-100;
+      position: relative;
+      .group-name {
+        padding-right: 50px;
+      }
+      img {
+        position: absolute;
+        height: 20px;
+        width: 20px;
+        right: 25px;
+        top: 15px;
+      }
+    }
+  }
+}

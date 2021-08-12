@@ -1,0 +1,57 @@
+<div class="customize-calender my-20">
+  <div class="d-flex justify-content-center align-items-center month">
+    <div class="mr-30 text-big">{{ activeMonth | date:'yyyy年 MM月' }}</div>
+    <button class="button-previous mr-20" (click)="clickPrevMonth()">
+      <img src="assets/images/icon_prev_period.svg">
+    </button>
+    <button class="button-next" (click)="clickNextMonth()">
+      <img src="assets/images/icon_next_period.svg">
+    </button>
+  </div>
+
+  <div class="calendar-content mt-20">
+    <div class="d-flex day-list">
+      <div class="text-center day" *ngFor="let day of fullDayOfWeek">{{ day }}</div>
+    </div>
+    <div class="d-flex day-with-review" [class.border-right]="[0, 1, 2, 3, 4].includes(startDayInMonth)">
+      <div class="with-review" [style.width]="calcReviewWidth()" [class.border-right]="![0, 1, 2, 3, 4].includes(startDayInMonth)">
+        <div class="d-flex review-content align-items-center">
+          <div class="review-left mr-20">
+            <img src="assets/images/icon_smile.svg" alt="smile" class="smile">
+          </div>
+          <div class="review-right">
+            <div class="title text-large mb-5">達成度</div>
+            <div class="d-flex">
+              <img src="assets/images/icon_star.svg" alt="smile" class="smile mr-5" *ngFor="let i of [1, 2, 3, 4, 5]">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="day-content" *ngFor="let day of calcStartDayArray(); index as i" [class.active-day]="isToday(day)">
+        <div class="number-day"><span [class.px-11]="day < 10">{{ day }}</span></div>
+        <img [src]="'assets/images/' + getActionIcon(day).medicine + '.svg'" alt="medicine" class="medicine">
+        <img [src]="'assets/images/' + getActionIcon(day).action + '.svg'" alt="action" class="action">
+        <div class="d-flex align-items-center action-list">
+          <img [src]="'assets/images/' + action + '.svg'" [alt]="action"
+               *ngFor="let action of getActionIcon(day).actionList">
+        </div>
+      </div>
+    </div>
+    <div class="d-flex day-content-list">
+      <div class="day-content" *ngFor="let day of getAllDayFromSecondRow(); index as i"
+           [class.border-left]="i % 7 === 0"
+           [class.active-day]="isToday(day)"
+      >
+        <ng-container *ngIf="day > 0">
+          <div class="number-day"><span [class.px-11]="day < 10">{{ day }}</span></div>
+          <img [src]="'assets/images/' + getActionIcon(day).medicine + '.svg'" alt="medicine" class="medicine">
+          <img [src]="'assets/images/' + getActionIcon(day).action + '.svg'" alt="action" class="action">
+          <div class="d-flex align-items-center action-list">
+            <img [src]="'assets/images/' + action + '.svg'" [alt]="action"
+                 *ngFor="let action of getActionIcon(day).actionList">
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</div>

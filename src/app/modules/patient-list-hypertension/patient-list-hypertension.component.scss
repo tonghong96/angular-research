@@ -1,0 +1,193 @@
+@import "src/styles";
+
+::ng-deep{
+  .parent-tooltip4 {
+    .tooltip-inner {
+      min-width: 350px !important;
+    }
+  }
+}
+
+.search-info {
+  padding: .625rem 1rem;
+  background-color: $gray-100;
+  .group-name {
+    color: $blue-200;
+    cursor: pointer;
+    img {
+      width: 60px;
+      height: 27px;
+      padding: 0 15px 0 0;
+    }
+  }
+  .search-box {
+    position: relative;
+    width: 219px;
+    float: right;
+    height: 40px;
+
+    input {
+      font-size: 14px;
+      padding-right: 30px;
+      height: 40px;
+
+      &::-webkit-input-placeholder {
+        font-size: 14px;
+        color: #cad7ea;
+      }
+    }
+
+    img {
+      right: 0;
+      position: absolute;
+      top: 6px;
+      z-index: 2;
+      cursor: pointer;
+    }
+  }
+
+  .doctor-info {
+    color: $blue-300;
+  }
+}
+
+.patient-list {
+  .note {
+    .average, .confirm-status {
+      color: $blue;
+      height: 24px;
+      background-color: #80808029;
+      border-radius: 10px;
+      font-size: 12px;
+      line-height: 24px;
+      text-align: center;
+    }
+
+    .average {
+      margin-right: 305px;
+      width: 340px;
+    }
+
+    .confirm-status {
+      width: 190px;
+      margin-right: 25px;
+    }
+  }
+
+  .table {
+    text-align: center;
+    color: $black-200;
+
+    thead {
+      th {
+        vertical-align: top;
+        font-size: 12px;
+        border-top: none;
+
+        div {
+          color: $black-200;
+        }
+
+        .blue-400 {
+          color: $blue-400;
+          font-size: 12px;
+        }
+      }
+    }
+
+    tbody {
+      tr {
+        cursor: pointer;
+      }
+    }
+
+    td {
+      vertical-align: middle;
+    }
+
+    .blood-pressure-morning {
+      width: 85px;
+      min-width: 85px;
+    }
+
+    .pulse-rate-morning {
+      width: 100px;
+      min-width: 100px;
+    }
+
+    .blood-pressure-evening {
+      width: 85px;
+      min-width: 85px;
+    }
+
+    .pulse-rate-evening {
+      width: 100px;
+      min-width: 100px;
+    }
+
+    .step-down-target {
+      width: 85px;
+      min-width: 85px;
+    }
+
+    .last-measurement-date {
+      width: 110px;
+      min-width: 110px;
+    }
+
+    .final-medical-treatment {
+      width: 80px;
+      min-width: 80px;
+    }
+
+    .myself-date {
+      width: 90px;
+      min-width: 90px;
+    }
+
+    .other-staff-date {
+      width: 130px;
+      min-width: 130px;
+      span {
+        font-size: 12px;
+      }
+
+      .other-staff-name {
+        color: $blue-400;
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+.tooltip-table {
+  color: white;
+  border-bottom: 1px solid $white;
+
+  thead {
+    th {
+      padding: 0.5rem;
+      border-top: none;
+      vertical-align: middle;
+    }
+  }
+
+  tbody {
+    td {
+      padding: 0.5rem;
+    }
+  }
+}
+
+.parent-tooltip {
+  position: relative;
+  .custom-tooltip {
+    position: absolute;
+    top: -64px;
+    left: 0;
+    will-change: auto;
+    transform: none;
+  }
+}
+
+

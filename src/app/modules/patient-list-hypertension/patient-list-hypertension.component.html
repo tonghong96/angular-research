@@ -1,0 +1,231 @@
+<div class="patient-list-container">
+  <div class="d-flex justify-content-between search-info">
+    <div>
+      <div class="group-name" (click)="clickGroupName()">
+        <img src="./assets/images/icon_group.png">
+        <span>name group</span>
+      </div>
+      <div>2名の患者さんがいます。</div>
+      <form (ngSubmit)="search()" class="search-box">
+        <input [(ngModel)]="textSearch" name="textSearch" placeholder="検索" class="form-control base-input">
+        <img (click)="search()" src="./assets/images/icon_search.svg">
+      </form>
+    </div>
+    <div class="text-right doctor-info">
+      <div (click)="showAllTooltip()">
+        <img src="./assets/images/icon_doctor.svg" height="30px" width="30px">
+      </div>
+      <div>Hello osk doc!</div>
+      <div class="d-flex">
+        <img src="./assets/images/icon_hospital.svg" height="20px" width="20px">
+        <span>OSK Demo SG</span>
+      </div>
+    </div>
+  </div>
+
+  <!--  Tooltip -->
+  <div class="d-flex align-items-center justify-content-center my-20">
+    <div class="parent-tooltip">
+      <div #tooltip1 class="btn btn-outline-secondary mr-20" [ngbTooltip]="tipContent1" triggers="click:blur" placement="top">
+        Tooltip on top
+        <ng-template #tipContent1 class="custom-tooltip">
+          <div class="text-left">最後の診察日 <br/> からの経過日数</div>
+        </ng-template>
+      </div>
+    </div>
+
+    <div class="parent-tooltip">
+      <div #tooltip2 class="btn btn-outline-secondary mr-20" [ngbTooltip]="tipContent2" triggers="click:blur" placement="bottom">
+        Tooltip on bottom
+        <ng-template #tipContent2 class="custom-tooltip">
+          <div class="text-left">直近朝体重の前週と<br/>前々週平均からの増減</div>
+        </ng-template>
+      </div>
+    </div>
+
+    <div class="parent-tooltip">
+      <div #tooltip3 class="btn btn-outline-secondary mr-20" [ngbTooltip]="tipContent3" triggers="click:blur" placement="top">
+        Tooltip on top
+        <ng-template #tipContent3 class="custom-tooltip">
+          <div class="text-left">直近の振り返り<br/>結果</div>
+        </ng-template>
+      </div>
+    </div>
+
+    <div class="parent-tooltip parent-tooltip4">
+      <div #tooltip4 class="btn btn-outline-secondary" [ngbTooltip]="tipContent4" triggers="click:blur" placement="bottom">
+        Tooltip on bottom
+        <ng-template #tipContent4 class="custom-tooltip" style="min-width: 350px">
+          <div class="px-10 py-10">
+            <table class="table tooltip-table">
+              <thead>
+              <tr>
+                <th scope="col">症状出現時の身体活動</th>
+                <th scope="col">
+                  <div>METs</div>
+                  <div>運動強度</div>
+                </th>
+                <th scope="col">
+                  <div>推定される</div>
+                  <div>NYHA分類</div>
+                </th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let item of tooltip4List">
+                <td class="text-left">{{ item.col_1 }}</td>
+                <td>{{ item.col_2 }}</td>
+                <td>{{ item.col_3 }}</td>
+              </tr>
+              </tbody>
+            </table>
+            <div class="text-small text-white text-left">
+              <div>急性・慢性心不全診療ガイドライン（2017年改訂版)</div>
+              <div>(日本循環器学会/日本心不全学会合同ガイドライン)</div>
+              <div>2018年3月発行 2018年6月更新 より作成</div>
+            </div>
+          </div>
+        </ng-template>
+      </div>
+    </div>
+
+  </div>
+
+  <!--  Popup common -->
+  <div class="d-flex align-items-center justify-content-center py-20 mb-20" style="background-color: #ebf1f9">
+    <button class="btn btn-danger mr-20" (click)="showDelete()">
+      Delete item
+    </button>
+    <button class="btn btn-warning mr-20" (click)="showRemove()">
+      Remove item
+    </button>
+    <button class="btn btn-primary mr-20" (click)="showAdd()">
+      Add item
+    </button>
+  </div>
+
+<!-- patient list -->
+  <div class="patient-list">
+    <div class="d-flex justify-content-end my-5 just note">
+      <div class="average">直近７日間の測定結果（平均）</div>
+      <div class="confirm-status">確認状況</div>
+    </div>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">
+            <div>
+              <app-label-column-table [active]="activeColumns.includes('patient_id')"
+                                      [label]="'ID'"
+                                      [labelId]="'patient_id'"
+                                      (sortEvent)="sortBy($event)">
+              </app-label-column-table>
+            </div>
+          </th>
+          <th scope="col">
+            <div>
+              <app-label-column-table [active]="activeColumns.includes('name')"
+                                      [label]="'氏名'"
+                                      [labelId]="'name'"
+                                      (sortEvent)="sortBy($event)">
+              </app-label-column-table>
+            </div>
+          </th>
+          <th scope="col">
+            <div>
+              <app-label-column-table [active]="activeColumns.includes('sex')"
+                                      [label]="'性別'"
+                                      [labelId]="'sex'"
+                                      (sortEvent)="sortBy($event)">
+              </app-label-column-table>
+            </div>
+          </th>
+          <th scope="col">
+            <div>
+              <app-label-column-table [active]="activeColumns.includes('age')"
+                                      [label]="'年齢'"
+                                      [labelId]="'age'"
+                                      (sortEvent)="sortBy($event)">
+              </app-label-column-table>
+            </div>
+          </th>
+          <th scope="col">
+            <div>血圧（朝）</div>
+            <div class="blue-400">mmHg</div>
+          </th>
+          <th scope="col">
+            <div>脈拍数（朝）</div>
+            <div class="blue-400">bpm</div>
+          </th>
+          <th scope="col">
+            <div>血圧（夕）</div>
+            <div class="blue-400">mmHg</div>
+          </th>
+          <th scope="col">
+            <div>脈拍数（夕）</div>
+            <div class="blue-400">bpm</div>
+          </th>
+          <th scope="col">
+            <div>降圧目標</div>
+            <div class="blue-400">mmHg</div>
+          </th>
+          <th scope="col">
+            <div>家庭血圧</div>
+            <div>最終測定日</div>
+          </th>
+          <th scope="col">
+            <div>最終診療</div>
+            <div class="blue-400">日前</div>
+          </th>
+          <th scope="col">自分</th>
+          <th scope="col">他スタッフ</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let patient of patientList" (click)="redirectPatientDetail(patient.patient_id)">
+          <td scope="row" class="patient-id">{{ patient.patient_id }}</td>
+          <td>{{ patient.name }}</td>
+          <td>{{ patient.sex }}</td>
+          <td>{{ patient.age }}</td>
+          <td class="blood-pressure-morning">{{ patient.blood_pressure_morning }}</td>
+          <td class="pulse-rate-morning">{{ patient.pulse_rate_morning }}</td>
+          <td class="blood-pressure-evening">{{ patient.blood_pressure_evening }}</td>
+          <td class="pulse-rate-evening">{{ patient.pulse_rate_evening }}</td>
+          <td class="step-down-target">{{ patient.step_down_target }}</td>
+          <td class="last-measurement-date">{{ patient.last_measurement_date }}</td>
+          <td class="final-medical-treatment">{{ patient.final_medical_treatment }}</td>
+          <td class="myself-date">
+            <div>
+              <div>{{ patient.myself_date }}</div>
+              <div>{{ patient.myself_time }}</div>
+            </div>
+          </td>
+          <td class="other-staff-date">
+            <div>{{ patient.other_staff_date }}</div>
+            <div>
+              <span>{{ patient.other_staff_time }}</span>
+              <span class="other-staff-name pl-10">{{ patient.other_staff_name }}</span>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<app-group-list-modal hidden></app-group-list-modal>
+<app-confirm-modal hidden></app-confirm-modal>
+
+
+
+
+
+
+
+
+
+
+
+
+

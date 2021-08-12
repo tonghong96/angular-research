@@ -1,0 +1,173 @@
+@import "src/styles";
+
+.customize-calender {
+  .month {
+    button {
+      outline: none;
+      background-color: #fff;
+      height: 32px;
+      width: 32px;
+      padding: 0;
+      border-radius: 8px;
+      border: 1px solid #0000;
+
+      &:hover:not(:active):not(:disabled){
+        border: 1px solid #333333;
+      }
+
+      &:active{
+        background-color: #E2E2E2;
+      }
+
+      &:focus:not(:active){
+        box-shadow: 0 0 2px #00000033;
+        border: 1px solid #436E92;
+        background-color: white;
+      }
+
+      &:disabled{
+        opacity: 0.5;
+        cursor: not-allowed;
+        background-color: white;
+      }
+    }
+  }
+
+  .calendar-content {
+    margin: 0 auto;
+    width: 840px;
+
+    .day-list {
+      border: 1px solid gray;
+      border-bottom: none;
+      font-weight: bold;
+
+      .day {
+        width: 120px;
+      }
+    }
+
+    .day-with-review {
+      border-left: 1px solid gray !important;
+
+      .with-review {
+        width: 600px;
+        height: 150px;
+        border-top: 1px solid gray;
+        border-bottom: 1px solid gray;
+
+        .review-content {
+          border: 2px solid #80808040;
+          height: 110px;
+          margin: 20px;
+          padding: 10px 20px;
+          width: 292px;
+
+          .review-left {
+            .smile {
+              width: 60px;
+              height: 60px;
+            }
+          }
+
+          .review-right {
+            .title {
+              color: $blue-200;
+            }
+            img {
+              width: 30px;
+              height: 30px;
+            }
+          }
+        }
+
+
+      }
+
+      .day-content {
+        border-bottom: 1px solid gray;
+        border-top: 1px solid gray;
+      }
+    }
+
+    .day-content-list {
+      flex-wrap: wrap;
+    }
+
+    .day-content {
+      width: 120px;
+      height: 150px;
+      border-bottom: 1px solid gray;
+      border-right: 1px solid gray;
+      text-align: center;
+      font-size: 20px;
+      line-height: 160px;
+      position: relative;
+
+      .px-11 {
+        padding-left: 12px !important;
+        padding-right: 11px !important;
+      }
+
+      .number-day {
+        position: absolute;
+        top: -61px;
+        left: 0;
+        font-size: 26px;
+        font-weight: bold;
+        color: #000000a3;
+
+        span {
+          padding: 5px;
+        }
+      }
+
+      .medicine {
+        position: absolute;
+        top: 5px;
+        right: 10px;
+        width: 35px;
+        height: 32px;
+      }
+
+      .action {
+        position: absolute;
+        width: 65px;
+        height: 65px;
+        top: 42px;
+        left: 26px;
+      }
+
+      .action-list {
+        position: absolute;
+        bottom: 5px;
+
+        img {
+          width: 30px;
+          height: 30px;
+        }
+      }
+    }
+
+    .active-day {
+      border: 3px solid gray;
+      border-right: 4px solid gray;
+      border-bottom: 4px solid gray;
+
+      .number-day {
+        span {
+          color: white;
+          background-color: $blue;
+        }
+      }
+    }
+
+    .border-left {
+      border-left: 1px solid gray !important;
+    }
+
+    .border-right {
+      border-right: 1px solid gray !important;
+    }
+  }
+}

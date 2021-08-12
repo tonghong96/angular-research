@@ -1,0 +1,22 @@
+ <div class="group-list-container">
+   <div class="modal-header justify-content-center">
+     <h4 class="modal-title" id="modal-basic-title">Target Group</h4>
+   </div>
+   <div class="modal-body">
+     <div class="group-list-content">
+       <div class="group-item d-flex" *ngFor="let item of groupList"
+            [class.active]="item.group_id === selectedGroup"
+            (click)="selectGroup(item.group_id)">
+         <div class="group-name">
+           {{ item?.name }}
+         </div>
+         <div>
+           <img [hidden]="item.group_id !== selectedGroup" src="./assets/images/icon_tick.svg">
+         </div>
+       </div>
+     </div>
+   </div>
+   <div class="modal-footer">
+     <button type="button" class="btn btn-outline-dark" (click)="clickedClose()">Close</button>
+   </div>
+ </div>
