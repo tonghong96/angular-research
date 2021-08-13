@@ -43,7 +43,10 @@
                 "src/styles"
               ]
             },
-            "scripts": []
+            "scripts": [],
+            "allowedCommonJsDependencies": [
+              "amcharts"
+            ]
           },
           "configurations": {
             "production": {

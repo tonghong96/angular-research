@@ -1,0 +1,53 @@
+@import "src/styles";
+
+.customize-chart {
+  .month {
+    button {
+      outline: none;
+      background-color: #fff;
+      height: 32px;
+      width: 32px;
+      padding: 0;
+      border-radius: 8px;
+      border: 1px solid #0000;
+
+      &:hover:not(:active):not(:disabled) {
+        border: 1px solid #333333;
+      }
+
+      &:active {
+        background-color: #E2E2E2;
+      }
+
+      &:focus:not(:active) {
+        box-shadow: 0 0 2px #00000033;
+        border: 1px solid #436E92;
+        background-color: white;
+      }
+
+      &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+        background-color: white;
+      }
+    }
+
+    .button-today {
+      width: 60px;
+      border: 2px solid #8080805c;
+      border-radius: 4px;
+      color: $blue;
+    }
+  }
+
+  .chart-container {
+    margin: 30px auto;
+    width: 60%;
+    min-width: 800px;
+
+    #chartdiv {
+      height: 500px;
+      width: 100%;
+    }
+  }
+}
