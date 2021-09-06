@@ -113,7 +113,8 @@ export class CustomizeChartComponent implements OnInit {
       hospital: 1,
       medicineValue: 1,
       actionValue: 2,
-    }, {
+    },
+    {
       date: new Date(2018, 0, 7),
       value: 120,
       value2: 80,
@@ -126,7 +127,120 @@ export class CustomizeChartComponent implements OnInit {
       hospital: 1,
       medicineValue: 1,
       actionValue: 3,
-    }];
+    },
+    {
+      date: new Date(2018, 0, 8),
+      value: 120,
+      value2: 80,
+      value3: 60,
+      value4: 155,
+      value5: 66,
+      heartRateValue: 2,
+      heartRate: 2,
+      hospitalValue: 0,
+      hospital: 1,
+      medicineValue: 1,
+      actionValue: 3,
+    },
+    {
+      date: new Date(2018, 0, 9),
+      value: 120,
+      value2: 80,
+      value3: 60,
+      value4: 155,
+      value5: 66,
+      heartRateValue: 2,
+      heartRate: 2,
+      hospitalValue: 0,
+      hospital: 1,
+      medicineValue: 1,
+      actionValue: 3,
+    },
+    {
+      date: new Date(2018, 0, 10),
+      value: 120,
+      value2: 60,
+      value3: 68,
+      value4: 125,
+      value5: 86,
+      heartRateValue: 2,
+      heartRate: 2,
+      hospitalValue: 0,
+      hospital: 1,
+      medicineValue: 1,
+      actionValue: 3,
+    },
+    {
+      date: new Date(2018, 0, 11),
+      value: 120,
+      value2: 60,
+      value3: 68,
+      value4: 125,
+      value5: 86,
+      heartRateValue: 2,
+      heartRate: 2,
+      hospitalValue: 0,
+      hospital: 1,
+      medicineValue: 1,
+      actionValue: 3,
+    },
+    {
+      date: new Date(2018, 0, 12),
+      value: 120,
+      value2: 60,
+      value3: 68,
+      value4: 125,
+      value5: 86,
+      heartRateValue: 2,
+      heartRate: 2,
+      hospitalValue: 0,
+      hospital: 1,
+      medicineValue: 1,
+      actionValue: 3,
+    },
+    {
+      date: new Date(2018, 0, 13),
+      value: 120,
+      value2: 70,
+      value3: 88,
+      value4: 105,
+      value5: 70,
+      heartRateValue: 2,
+      heartRate: 2,
+      hospitalValue: 0,
+      hospital: 1,
+      medicineValue: 1,
+      actionValue: 3,
+    },
+    {
+      date: new Date(2018, 0, 14),
+      value: 120,
+      value2: 60,
+      value3: 68,
+      value4: 125,
+      value5: 86,
+      heartRateValue: 2,
+      heartRate: 2,
+      hospitalValue: 0,
+      hospital: 1,
+      medicineValue: 1,
+      actionValue: 3,
+    },
+    {
+      date: new Date(2018, 0, 15),
+      value: 120,
+      value2: 70,
+      value3: 88,
+      value4: 105,
+      value5: 70,
+      heartRateValue: 2,
+      heartRate: 2,
+      hospitalValue: 0,
+      hospital: 1,
+      medicineValue: 1,
+      actionValue: 3,
+    }
+  ];
 
   constructor() { }
 
@@ -189,7 +303,7 @@ export class CustomizeChartComponent implements OnInit {
     // Create chart instance
     this.chart4 = am4core.create('chartdiv4', am4charts.XYChart);
     const chart = this.chart4;
-    chart.height = 350;
+    chart.height = 220;
 
     // Add data
     chart.data = this.data ;
@@ -203,6 +317,7 @@ export class CustomizeChartComponent implements OnInit {
     dateAxis.cursorTooltipEnabled = false;
     dateAxis.renderer.cellStartLocation = 0.05;
     dateAxis.renderer.cellEndLocation = 0.95;
+    dateAxis.renderer.labels.template.fontSize = 12;
 
     // const dateAxis = this.createDateAxis(chart);
 
@@ -837,12 +952,15 @@ export class CustomizeChartComponent implements OnInit {
     // Create chart instance
     this.chart1 = am4core.create('chartdiv2', am4charts.XYChart);
     const chart = this.chart1;
-    chart.height = 350;
+    chart.height = 220;
 
     // Create daily series and related axes
     const dateAxis1 = chart.xAxes.push(new am4charts.DateAxis());
     dateAxis1.renderer.grid.template.location = 0;
-    dateAxis1.renderer.minGridDistance = 40;
+    dateAxis1.renderer.minGridDistance = 50;
+    dateAxis1.renderer.cellStartLocation = 0.05;
+    dateAxis1.renderer.cellEndLocation = 0.95;
+    dateAxis1.renderer.labels.template.fontSize = 12;
 
     const valueAxis1 = chart.yAxes.push(new am4charts.ValueAxis());
 
@@ -895,7 +1013,7 @@ export class CustomizeChartComponent implements OnInit {
     firstDate.setDate(firstDate.getDate() - 10);
     firstDate.setHours(0, 0, 0, 0);
     const data = [];
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < 25; i++) {
       const newDate = new Date(firstDate);
       newDate.setDate(newDate.getDate() + i);
       data.push({
