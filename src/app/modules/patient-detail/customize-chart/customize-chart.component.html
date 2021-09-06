@@ -1,18 +1,19 @@
 <div class="customize-chart">
   <div class="d-flex justify-content-center align-items-center month">
-    <button class="button-today mr-30">今日</button>
-    <div class="mr-30 text-big">{{ '2021-08-12' | date:'yyyy年 MM月' }}</div>
-    <button class="button-previous mr-20">
+    <button class="button-today mr-30" (click)="clickToday()">今日</button>
+    <div class="mr-30 text-big">{{ startDate | date:'yyyy年 MM月 dd' }} - {{ endDate | date:'yyyy年 MM月 dd' }}</div>
+    <button class="button-previous mr-20" (click)="clickPrevMonth()">
       <img src="assets/images/icon_prev_period.svg">
     </button>
-    <button class="button-next">
+    <button class="button-next" (click)="clickNextMonth()">
       <img src="assets/images/icon_next_period.svg">
     </button>
   </div>
 
   <div class="chart-container">
     <!--  -->
-    <div id="chartdiv"></div>
+    <div id="chartdiv4"></div>
+<!--    <div id="chartdiv"></div>-->
     <div id="chartdiv2" class="mt-50"></div>
   </div>
 </div>
