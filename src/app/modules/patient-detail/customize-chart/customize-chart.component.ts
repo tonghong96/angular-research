@@ -151,8 +151,8 @@ export class CustomizeChartComponent implements OnInit {
   }
 
   clickToday(): void {
-    // this.startDate = new Date (moment(new Date()).subtract(this.displayedDateNumber, 'days').format(this.formatType));
-    // this.getEndDate();
+    this.startDate = new Date (moment(new Date()).subtract(this.displayedDateNumber, 'days').format(this.formatType));
+    this.getEndDate();
   }
 
   showIndicator(indicator: Container): void {
