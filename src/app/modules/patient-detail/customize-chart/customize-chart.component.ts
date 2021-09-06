@@ -161,8 +161,15 @@ export class CustomizeChartComponent implements OnInit {
     indicator.width = am4core.percent(100);
     indicator.height = am4core.percent(100);
 
+    // const indicatorLabel = indicator.createChild(am4core.Label);
+    // indicatorLabel.text = 'Loading...';
+    // indicatorLabel.align = 'center';
+    // indicatorLabel.valign = 'middle';
+    // indicatorLabel.fontSize = 20;
+
     const hourglass = indicator.createChild(am4core.Image);
-    hourglass.href = '/assets/images/loading03.gif';
+    // hourglass.href = '/assets/images/loading03.gif';
+    hourglass.href = 'https://icon-library.com/images/loading-icon-transparent-background/loading-icon-transparent-background-12.jpg';
     hourglass.align = 'center';
     hourglass.valign = 'middle';
     hourglass.horizontalCenter = 'middle';
@@ -182,7 +189,7 @@ export class CustomizeChartComponent implements OnInit {
     // Create chart instance
     this.chart4 = am4core.create('chartdiv4', am4charts.XYChart);
     const chart = this.chart4;
-    chart.height = 400;
+    chart.height = 350;
 
     // Add data
     chart.data = this.data ;
@@ -225,7 +232,7 @@ export class CustomizeChartComponent implements OnInit {
 
     setTimeout(() => {
       this.hideIndicator(indicator);
-    }, 2000);
+    }, 4000);
   }
 
   createImage(bullet: Bullet, option: {href: string; width: number; height: number}): Image {
@@ -830,7 +837,7 @@ export class CustomizeChartComponent implements OnInit {
     // Create chart instance
     this.chart1 = am4core.create('chartdiv2', am4charts.XYChart);
     const chart = this.chart1;
-    chart.height = 400;
+    chart.height = 350;
 
     // Create daily series and related axes
     const dateAxis1 = chart.xAxes.push(new am4charts.DateAxis());
@@ -879,7 +886,7 @@ export class CustomizeChartComponent implements OnInit {
 
     setTimeout(() => {
       this.hideIndicator(indicator);
-    }, 4000);
+    }, 2000);
   }
 
 
