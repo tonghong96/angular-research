@@ -208,9 +208,9 @@ export class CustomizeChartComponent implements OnInit {
 
     // Create series
     this.createBloodPressure(chart, 'value3', 'Huyet ap');
-    // this.createSeriesAndAxis(chart, 'value2', 'Nhip tim');
-    this.createHeartRateAndHospitalAxis(chart);
-    this.createMedicineAndActionAxis(chart);
+    this.createSeriesAndAxis(chart, 'value2', 'Nhip tim');
+    // this.createHeartRateAndHospitalAxis(chart);
+    // this.createMedicineAndActionAxis(chart);
 
     chart.cursor = new am4charts.XYCursor();
 
